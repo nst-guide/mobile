@@ -1,18 +1,14 @@
-import React from "react";
-import { View } from "react-native";
-import { Appbar, Text } from "react-native-paper";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-
+import React from 'react';
+import { View } from 'react-native';
+import { Appbar, Text } from 'react-native-paper';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 class RoutesScreen extends React.Component {
   static navigationOptions = {
-    drawerLabel: "Settings",
+    drawerLabel: 'Settings',
     drawerIcon: ({ tintColor }) => (
-      <FontAwesome5
-        name='cog'
-        color={tintColor}
-      />
-    )
+      <FontAwesome5 name="cog" color={tintColor} />
+    ),
   };
 
   render() {

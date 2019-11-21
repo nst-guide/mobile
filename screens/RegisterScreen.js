@@ -1,24 +1,23 @@
-import React, { memo, useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import Background from "../components/Background";
-import Logo from "../components/Logo";
-import Header from "../components/Header";
-import Button from "../components/Button";
-import TextInput from "../components/TextInput";
-import BackButton from "../components/BackButton";
-import { theme } from "../core/theme";
+import React, { memo, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Background from '../components/Background';
+import Logo from '../components/Logo';
+import Header from '../components/Header';
+import Button from '../components/Button';
+import TextInput from '../components/TextInput';
+import BackButton from '../components/BackButton';
+import { theme } from '../core/theme';
 import {
   emailValidator,
   passwordValidator,
-  usernameValidator
-} from "../core/utils";
-import { User } from "../core/parse"
-
+  usernameValidator,
+} from '../core/utils';
+import { User } from '../core/parse';
 
 const RegisterScreen = ({ navigation }) => {
-  const [username, setUsername] = useState({ value: "", error: "" });
-  const [email, setEmail] = useState({ value: "", error: "" });
-  const [password, setPassword] = useState({ value: "", error: "" });
+  const [username, setUsername] = useState({ value: '', error: '' });
+  const [email, setEmail] = useState({ value: '', error: '' });
+  const [password, setPassword] = useState({ value: '', error: '' });
 
   const _onSignUpPressed = () => {
     const usernameError = usernameValidator(username.value);
@@ -32,24 +31,31 @@ const RegisterScreen = ({ navigation }) => {
       return;
     }
 
-    user = new User({username: username.value, email:email.value, password:password.value})
-    user.signUp().then((user) => {
-      console.log('successfully signed up')
-    }).catch((error) => {
-      // TODO: put server error into a separate box, not as part of the username error
-      // TODO: currently this gives error of "Warning: Can't perform a React state update on an unmounted component". To repro, try with existing username
-      setUsername({...username, error: error.message})
-      setEmail(email)
-      setPassword(password)
-      return;
-    })
+    const user = new User({
+      username: username.value,
+      email: email.value,
+      password: password.value,
+    });
+    user
+      .signUp()
+      .then(user => {
+        console.log('successfully signed up');
+      })
+      .catch(error => {
+        // TODO: put server error into a separate box, not as part of the username error
+        // TODO: currently this gives error of "Warning: Can't perform a React state update on an unmounted component". To repro, try with existing username
+        setUsername({ ...username, error: error.message });
+        setEmail(email);
+        setPassword(password);
+        return;
+      });
 
-    navigation.navigate("Home");
+    navigation.navigate('Home');
   };
 
   return (
     <Background>
-      <BackButton goBack={() => navigation.navigate("AuthStart")} />
+      <BackButton goBack={() => navigation.navigate('AuthStart')} />
 
       <Logo />
 
@@ -103,7 +109,7 @@ const RegisterScreen = ({ navigation }) => {
 
       <View style={styles.row}>
         <Text style={styles.label}>Already have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Text style={styles.link}>Login</Text>
         </TouchableOpacity>
       </View>
@@ -113,19 +119,19 @@ const RegisterScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   label: {
-    color: theme.colors.secondary
+    color: theme.colors.secondary,
   },
   button: {
-    marginTop: 24
+    marginTop: 24,
   },
   row: {
-    flexDirection: "row",
-    marginTop: 4
+    flexDirection: 'row',
+    marginTop: 4,
   },
   link: {
-    fontWeight: "bold",
-    color: theme.colors.primary
-  }
+    fontWeight: 'bold',
+    color: theme.colors.primary,
+  },
 });
 
 export default memo(RegisterScreen);

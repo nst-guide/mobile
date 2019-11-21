@@ -1,16 +1,16 @@
-import React, { memo, useState } from "react";
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
-import { emailValidator } from "../core/utils";
-import Background from "../components/Background";
-import BackButton from "../components/BackButton";
-import Logo from "../components/Logo";
-import Header from "../components/Header";
-import TextInput from "../components/TextInput";
-import { theme } from "../core/theme";
-import Button from "../components/Button";
+import React, { memo, useState } from 'react';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { emailValidator } from '../core/utils';
+import Background from '../components/Background';
+import BackButton from '../components/BackButton';
+import Logo from '../components/Logo';
+import Header from '../components/Header';
+import TextInput from '../components/TextInput';
+import { theme } from '../core/theme';
+import Button from '../components/Button';
 
 const ForgotPasswordScreen = ({ navigation }) => {
-  const [email, setEmail] = useState({ value: "", error: "" });
+  const [email, setEmail] = useState({ value: '', error: '' });
 
   const _onSendPressed = () => {
     const emailError = emailValidator(email.value);
@@ -20,12 +20,12 @@ const ForgotPasswordScreen = ({ navigation }) => {
       return;
     }
 
-    navigation.navigate("Login");
+    navigation.navigate('Login');
   };
 
   return (
     <Background>
-      <BackButton goBack={() => navigation.navigate("Login")} />
+      <BackButton goBack={() => navigation.navigate('Login')} />
 
       <Logo />
 
@@ -53,7 +53,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
       <TouchableOpacity
         style={styles.back}
-        onPress={() => navigation.navigate("Login")}
+        onPress={() => navigation.navigate('Login')}
       >
         <Text style={styles.label}>← Back to login</Text>
       </TouchableOpacity>
@@ -63,16 +63,16 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   back: {
-    width: "100%",
-    marginTop: 12
+    width: '100%',
+    marginTop: 12,
   },
   button: {
-    marginTop: 12
+    marginTop: 12,
   },
   label: {
     color: theme.colors.secondary,
-    width: "100%"
-  }
+    width: '100%',
+  },
 });
 
 export default memo(ForgotPasswordScreen);

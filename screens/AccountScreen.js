@@ -1,12 +1,14 @@
-import React from "react";
-import { View } from "react-native";
-import { Appbar, Text } from "react-native-paper";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import React from 'react';
+import { View } from 'react-native';
+import { Appbar, Text } from 'react-native-paper';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 class AccountScreen extends React.Component {
   static navigationOptions = {
-    drawerLabel: "Account",
-    drawerIcon: ({ tintColor }) => <FontAwesome5 name="user" color={tintColor} />
+    drawerLabel: 'Account',
+    drawerIcon: ({ tintColor }) => (
+      <FontAwesome5 name="user" color={tintColor} />
+    ),
   };
 
   render() {

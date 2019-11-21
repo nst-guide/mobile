@@ -1,18 +1,18 @@
-import React, { memo, useState } from "react";
-import { TouchableOpacity, StyleSheet, Text, View } from "react-native";
-import Background from "../components/Background";
-import Logo from "../components/Logo";
-import Header from "../components/Header";
-import Button from "../components/Button";
-import TextInput from "../components/TextInput";
-import BackButton from "../components/BackButton";
-import { theme } from "../core/theme";
-import { usernameValidator, passwordValidator } from "../core/utils";
-import { User } from "../core/parse";
+import React, { memo, useState } from 'react';
+import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import Background from '../components/Background';
+import Logo from '../components/Logo';
+import Header from '../components/Header';
+import Button from '../components/Button';
+import TextInput from '../components/TextInput';
+import BackButton from '../components/BackButton';
+import { theme } from '../core/theme';
+import { usernameValidator, passwordValidator } from '../core/utils';
+import { User } from '../core/parse';
 
 const LoginScreen = ({ navigation }) => {
-  const [username, setusername] = useState({ value: "", error: "" });
-  const [password, setPassword] = useState({ value: "", error: "" });
+  const [username, setusername] = useState({ value: '', error: '' });
+  const [password, setPassword] = useState({ value: '', error: '' });
 
   const _onLoginPressed = () => {
     const usernameError = usernameValidator(username.value);
@@ -32,12 +32,12 @@ const LoginScreen = ({ navigation }) => {
     //   console.log('error: ' + error.message);
     // });
 
-    navigation.navigate("Home");
+    navigation.navigate('Home');
   };
 
   return (
     <Background>
-      <BackButton goBack={() => navigation.navigate("AuthStart")} />
+      <BackButton goBack={() => navigation.navigate('AuthStart')} />
 
       <Logo />
 
@@ -47,7 +47,7 @@ const LoginScreen = ({ navigation }) => {
         label="Username"
         returnKeyType="next"
         value={username.value}
-        onChangeText={text => setusername({ value: text, error: "" })}
+        onChangeText={text => setusername({ value: text, error: '' })}
         error={!!username.error}
         errorText={username.error}
         autoCapitalize="none"
@@ -57,16 +57,14 @@ const LoginScreen = ({ navigation }) => {
         label="Password"
         returnKeyType="done"
         value={password.value}
-        onChangeText={text => setPassword({ value: text, error: "" })}
+        onChangeText={text => setPassword({ value: text, error: '' })}
         error={!!password.error}
         errorText={password.error}
         secureTextEntry
       />
 
       <View style={styles.forgotPassword}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("ForgotPassword")}
-        >
+        <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
           <Text style={styles.label}>Forgot your password?</Text>
         </TouchableOpacity>
       </View>
@@ -77,7 +75,7 @@ const LoginScreen = ({ navigation }) => {
 
       <View style={styles.row}>
         <Text style={styles.label}>Don’t have an account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
           <Text style={styles.link}>Sign up</Text>
         </TouchableOpacity>
       </View>
@@ -87,21 +85,21 @@ const LoginScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   forgotPassword: {
-    width: "100%",
-    alignItems: "flex-end",
-    marginBottom: 24
+    width: '100%',
+    alignItems: 'flex-end',
+    marginBottom: 24,
   },
   row: {
-    flexDirection: "row",
-    marginTop: 4
+    flexDirection: 'row',
+    marginTop: 4,
   },
   label: {
-    color: theme.colors.secondary
+    color: theme.colors.secondary,
   },
   link: {
-    fontWeight: "bold",
-    color: theme.colors.primary
-  }
+    fontWeight: 'bold',
+    color: theme.colors.primary,
+  },
 });
 
 export default memo(LoginScreen);

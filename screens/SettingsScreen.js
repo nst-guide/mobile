@@ -1,19 +1,18 @@
-import React from "react";
-import { View, ScrollView } from "react-native";
-import { Appbar, Text, Button, List, Checkbox } from "react-native-paper";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import ExpandingButton from "../components/ExpandingButton";
-import {SafeAreaView} from "react-navigation";
-
+import React from 'react';
+import { View, ScrollView } from 'react-native';
+import { Appbar, Text, Button, List, Checkbox } from 'react-native-paper';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import ExpandingButton from '../components/ExpandingButton';
+import { SafeAreaView } from 'react-navigation';
 
 class SettingsAccordion extends React.Component {
   state = {
-    expanded: true
+    expanded: true,
   };
 
   _handlePress = () =>
     this.setState({
-      expanded: !this.state.expanded
+      expanded: !this.state.expanded,
     });
 
   render() {
@@ -41,15 +40,16 @@ class SettingsAccordion extends React.Component {
   }
 }
 
-
 class SettingsScreen extends React.Component {
   state = {
-    isCollapsed: true
+    isCollapsed: true,
   };
 
   static navigationOptions = {
-    drawerLabel: "Settings",
-    drawerIcon: ({ tintColor }) => <FontAwesome5 name="cog" color={tintColor} />
+    drawerLabel: 'Settings',
+    drawerIcon: ({ tintColor }) => (
+      <FontAwesome5 name="cog" color={tintColor} />
+    ),
   };
 
   handleClick() {
