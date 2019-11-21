@@ -1,6 +1,6 @@
-import * as React from "react";
-import { StyleSheet } from "react-native";
-import { FAB } from "react-native-paper";
+import * as React from 'react';
+import { StyleSheet } from 'react-native';
+import { FAB } from 'react-native-paper';
 
 const AddContentButton = props => (
   <FAB {...props} style={styles.fab} small icon="plus" />
@@ -8,11 +8,11 @@ const AddContentButton = props => (
 
 const styles = StyleSheet.create({
   fab: {
-    position: "absolute",
+    position: 'absolute',
     margin: 16,
     right: 10,
-    top: 30
-  }
+    top: 30,
+  },
 });
 
 export default AddContentButton;

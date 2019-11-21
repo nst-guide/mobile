@@ -1,10 +1,10 @@
-import * as React from "react";
-import { StyleSheet } from "react-native";
-import { FAB, Portal, Provider } from "react-native-paper";
+import * as React from 'react';
+import { StyleSheet } from 'react-native';
+import { FAB, Portal, Provider } from 'react-native-paper';
 
 export default class FindWaypointsButton extends React.Component {
   state = {
-    open: false
+    open: false,
   };
 
   render() {
@@ -15,20 +15,20 @@ export default class FindWaypointsButton extends React.Component {
         icon="search"
         actions={[
           {
-            icon: "campground",
-            label: "Campsites",
-            onPress: () => console.log("Find campsites")
+            icon: 'campground',
+            label: 'Campsites',
+            onPress: () => console.log('Find campsites'),
           },
           {
-            icon: "tint",
-            label: "Water",
-            onPress: () => console.log("Find water")
+            icon: 'tint',
+            label: 'Water',
+            onPress: () => console.log('Find water'),
           },
           {
-            icon: "city",
-            label: "Towns",
-            onPress: () => console.log("Find towns")
-          }
+            icon: 'city',
+            label: 'Towns',
+            onPress: () => console.log('Find towns'),
+          },
         ]}
         onStateChange={({ open }) => this.setState({ open })}
         onPress={() => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import {Provider as PaperProvider} from 'react-native-paper';
+import { Provider as PaperProvider } from 'react-native-paper';
 import AppContainer from './navigation/AppNavigator';
-import {theme} from './constants/Theme';
+import { theme } from './constants/Theme';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 // TODO: Check out how to pass a theme to PaperProvider:
@@ -15,7 +15,8 @@ export default class App extends React.Component {
         settings={{
           icon: props => <FontAwesome5 name={props.icon} {...props} />,
         }}
-        theme={theme}>
+        theme={theme}
+      >
         <AppContainer />
       </PaperProvider>
     );
