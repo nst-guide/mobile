@@ -4,7 +4,6 @@ import MapboxGL from '@react-native-mapbox-gl/maps';
 import { MAPBOX_API_KEY } from 'react-native-dotenv';
 import { StyleSheet, View, Dimensions } from 'react-native';
 
-console.log(MAPBOX_API_KEY);
 MapboxGL.setAccessToken(MAPBOX_API_KEY);
 
 const styles = StyleSheet.create({
@@ -24,6 +23,12 @@ const styles = StyleSheet.create({
   },
 });
 
+const layerStyles = {
+  pctLine: {
+    lineColor: 'rgb(204, 0, 0)',
+  },
+};
+
 export class Map extends React.Component {
   componentDidMount() {
     MapboxGL.setTelemetryEnabled(false);
@@ -34,9 +39,19 @@ export class Map extends React.Component {
       <View style={styles.page}>
         <View style={styles.container}>
           <MapboxGL.MapView
+            ref={ref => (this.map = ref)}
             style={styles.map}
             styleURL="mapbox://styles/mapbox/streets-v11"
-          />
+          >
+            <MapboxGL.Camera
+              zoomLevel={2}
+              centerCoordinate={[-35.15165038, 40.6235728]}
+            />
+
+            <MapboxGL.ShapeSource id="pctSource" shape={MapData}>
+              <MapboxGL.LineLayer id="pctLine" style={layerStyles.pctLine} />
+            </MapboxGL.ShapeSource>
+          </MapboxGL.MapView>
         </View>
       </View>
     );
