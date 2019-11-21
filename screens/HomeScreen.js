@@ -6,6 +6,11 @@ import AddContentButton from '../components/AddContentButton';
 import FindWaypointsButton from '../components/FindWaypointsButton';
 import { FAB, Portal, Provider } from 'react-native-paper';
 
+// Note: I currently have the FAB.group component (i.e. FindWaypointsButton) in
+// a separate <Provider><Portal> tree than the layers and locator FABs. This is
+// required so that when FindWaypointsButton is clicked, the options that then
+// show up appear _above_ the layers and locator FABs, and not beneath them.
+
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
