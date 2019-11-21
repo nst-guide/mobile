@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider as PaperProvider } from 'react-native-paper';
 import AppContainer from './navigation/AppNavigator';
 import { theme } from './constants/Theme';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { Icon } from './components/Icon';
 
 // TODO: Check out how to pass a theme to PaperProvider:
 // https://github.com/callstack/react-native-paper-login-template/blob/master/App.tsx
@@ -13,7 +13,7 @@ export default class App extends React.Component {
     return (
       <PaperProvider
         settings={{
-          icon: props => <FontAwesome5 name={props.icon} {...props} />,
+          icon: props => <Icon name={props.icon} {...props} />,
         }}
         theme={theme}
       >
