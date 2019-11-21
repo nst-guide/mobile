@@ -44,11 +44,15 @@ export class Map extends React.Component {
             styleURL="mapbox://styles/mapbox/streets-v11"
           >
             <MapboxGL.Camera
-              zoomLevel={2}
-              centerCoordinate={[-35.15165038, 40.6235728]}
+              zoomLevel={10}
+              centerCoordinate={[-116.5085524, 32.6524889]}
             />
 
-            <MapboxGL.ShapeSource id="pctSource" shape={MapData}>
+            <MapboxGL.ShapeSource
+              id="pctSource"
+              shape={MapData}
+              onPress={() => console.log('Nemo touched the line!')}
+            >
               <MapboxGL.LineLayer id="pctLine" style={layerStyles.pctLine} />
             </MapboxGL.ShapeSource>
           </MapboxGL.MapView>
