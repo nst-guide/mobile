@@ -1,6 +1,7 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
-import { FAB, Portal, Provider } from 'react-native-paper';
+import React from 'react';
+import { FAB } from 'react-native-paper';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { Icon } from './Icon';
 
 export default class FindWaypointsButton extends React.Component {
   state = {
@@ -10,9 +11,8 @@ export default class FindWaypointsButton extends React.Component {
   render() {
     return (
       <FAB.Group
-        // style={styles.fab}
         open={this.state.open}
-        icon="search"
+        icon={this.state.open ? 'times' : 'search'}
         actions={[
           {
             icon: 'campground',
@@ -31,25 +31,7 @@ export default class FindWaypointsButton extends React.Component {
           },
         ]}
         onStateChange={({ open }) => this.setState({ open })}
-        onPress={() => {
-          if (this.state.open) {
-            // do something if the speed dial is open
-          }
-        }}
       />
     );
   }
 }
-
-// const FindWaypointsButton = props => (
-//   <FAB {...props} style={styles.fab} small icon="search" />
-// );
-
-// const styles = StyleSheet.create({
-//   fab: {
-//     position: "absolute",
-//     margin: 16,
-//     right: 10,
-//     bottom: 30
-//   }
-// });
