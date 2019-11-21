@@ -1,7 +1,5 @@
 import React from 'react';
 import { FAB } from 'react-native-paper';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import { Icon } from './Icon';
 
 export default class FindWaypointsButton extends React.Component {
   state = {
