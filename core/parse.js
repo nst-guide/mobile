@@ -14,7 +14,7 @@ export class User extends Parse.User {
 
     this.set('username', username);
     this.set('password', password);
-    this.set('email', email);
+    if (email) this.set('email', email);
   }
 }
 Parse.Object.registerSubclass('User', User);

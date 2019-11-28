@@ -11,7 +11,7 @@ import { usernameValidator, passwordValidator } from '../core/utils';
 import { User } from '../core/parse';
 
 const LoginScreen = ({ navigation }) => {
-  const [username, setusername] = useState({ value: '', error: '' });
+  const [username, setUsername] = useState({ value: '', error: '' });
   const [password, setPassword] = useState({ value: '', error: '' });
 
   const _onLoginPressed = () => {
@@ -19,20 +19,28 @@ const LoginScreen = ({ navigation }) => {
     const passwordError = passwordValidator(password.value);
 
     if (usernameError || passwordError) {
-      setusername({ ...username, error: usernameError });
+      setUsername({ ...username, error: usernameError });
       setPassword({ ...password, error: passwordError });
       return;
     }
 
-    // console.log(username)
-    // console.log(password)
-    // User.logIn(username.value, password.value).then(user => {
-    //   console.log('current user: ' + user);
-    // }).catch(error => {
-    //   console.log('error: ' + error.message);
-    // });
-
-    navigation.navigate('Home');
+    const user = new User({
+      username: username.value,
+      password: password.value,
+    });
+    user
+      .logIn()
+      .then(signedInUser => {
+        console.log('current user: ');
+        console.log(signedInUser);
+        navigation.navigate('Home');
+      })
+      .catch(error => {
+        // TODO: put server error into a separate box, not as part of the username error
+        setUsername({ ...username, error: error.message });
+        setPassword(password);
+        return;
+      });
   };
 
   return (
@@ -47,7 +55,7 @@ const LoginScreen = ({ navigation }) => {
         label="Username"
         returnKeyType="next"
         value={username.value}
-        onChangeText={text => setusername({ value: text, error: '' })}
+        onChangeText={text => setUsername({ value: text, error: '' })}
         error={!!username.error}
         errorText={username.error}
         autoCapitalize="none"
