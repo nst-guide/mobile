@@ -38,19 +38,17 @@ const RegisterScreen = ({ navigation }) => {
     });
     user
       .signUp()
-      .then(user => {
+      .then(() => {
         console.log('successfully signed up');
+        navigation.navigate('Home');
       })
       .catch(error => {
         // TODO: put server error into a separate box, not as part of the username error
-        // TODO: currently this gives error of "Warning: Can't perform a React state update on an unmounted component". To repro, try with existing username
         setUsername({ ...username, error: error.message });
         setEmail(email);
         setPassword(password);
         return;
       });
-
-    navigation.navigate('Home');
   };
 
   return (
