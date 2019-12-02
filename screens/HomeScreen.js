@@ -4,6 +4,9 @@ import { Map } from '../components/Map';
 import DrawerButton from '../components/DrawerButton';
 import AddContentButton from '../components/AddContentButton';
 import FindWaypointsButton from '../components/FindWaypointsButton';
+import LayersModal from '../components/LayersModal';
+// import AddContentModal from '../components/AddContentModal';
+import AddContentMenu from '../components/AddContentMenu';
 import { FAB, Portal, Provider } from 'react-native-paper';
 
 // Note: I currently have the FAB.group component (i.e. FindWaypointsButton) in
@@ -15,9 +18,19 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      elevationCollapsed: true,
+      elevationPaneVisible: false,
+      layersModalVisible: false,
+      addContentMenuVisible: false,
+      addContentModalVisible: false,
     };
   }
+
+  _showLayersModal = () => this.setState({ layersModalVisible: true });
+  _hideLayersModal = () => this.setState({ layersModalVisible: false });
+  _showAddContentMenu = () => this.setState({ addContentMenuVisible: true });
+  _hideAddContentMenu = () => this.setState({ addContentMenuVisible: false });
+  _showAddContentModal = () => this.setState({ addContentModalVisible: true });
+  _hideAddContentModal = () => this.setState({ addContentModalVisible: false });
 
   toggleElevation() {
     console.log('toggling elevation');
