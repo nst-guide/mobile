@@ -1,10 +1,7 @@
 import React from 'react';
 import MapData from '../assets/map_data/track.json';
 import MapboxGL from '@react-native-mapbox-gl/maps';
-import { MAPBOX_API_KEY } from 'react-native-dotenv';
 import { StyleSheet, View, Dimensions } from 'react-native';
-
-MapboxGL.setAccessToken(MAPBOX_API_KEY);
 
 export class Map extends React.Component {
   componentDidMount() {
@@ -17,7 +14,7 @@ export class Map extends React.Component {
         <MapboxGL.MapView
           ref={ref => (this.map = ref)}
           style={styles.map}
-          styleURL="mapbox://styles/mapbox/streets-v11"
+          styleURL="https://raw.githubusercontent.com/nst-guide/osm-liberty/gh-pages/style.json"
         >
           <MapboxGL.Camera
             zoomLevel={10}
