@@ -10,13 +10,20 @@ import {
   RoutesScreen,
   AuthStartScreen,
   SettingsScreen,
+  DownloadsScreen,
 } from '../screens';
 
-// If the current route is the same as the route called in `props.navigation.navigate()`, nothing happens because that screen is already on top. Because of that, the drawer doesn't close, because no actions are happening. In order to close the drawer if the user selects the current screen from the drawer, I call `props.navigation.closeDrawer()` after navigating to a given route.
+// If the current route is the same as the route called in
+// `props.navigation.navigate()`, nothing happens because that screen is already
+// on top. Because of that, the drawer doesn't close, because no actions are
+// happening. In order to close the drawer if the user selects the current
+// screen from the drawer, I call `props.navigation.closeDrawer()` after
+// navigating to a given route.
 
 const MenuDrawerNavigator = createDrawerNavigator(
   {
     Home: { screen: HomeScreen },
+    Downloads: { screen: DownloadsScreen },
     Settings: { screen: SettingsScreen },
     AuthStart: { screen: AuthStartScreen },
     Routes: { screen: RoutesScreen },
@@ -31,6 +38,15 @@ const MenuDrawerNavigator = createDrawerNavigator(
             active="true"
             onPress={() => {
               props.navigation.navigate('Home');
+              props.navigation.closeDrawer();
+            }}
+          />
+          <Drawer.Item
+            icon="download"
+            label="Downloads"
+            active="true"
+            onPress={() => {
+              props.navigation.navigate('Downloads');
               props.navigation.closeDrawer();
             }}
           />
