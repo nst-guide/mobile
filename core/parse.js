@@ -20,20 +20,22 @@ export class User extends Parse.User {
 Parse.Object.registerSubclass('User', User);
 
 export class Waypoint extends Parse.Object {
-  constructor({ lat, lon, name, trail_mile }) {
+  constructor({ lat, lon, name, symbol }) {
     super('Waypoint');
 
     if (lat && lon) {
-      const point = new Parse.GeoPoint({ latitude: lat, longitude: lon });
-      this.set('point', point);
+      const geometry = new Parse.GeoPoint({ latitude: lat, longitude: lon });
+      this.set('geometry', geometry);
     }
 
     if (name) {
       this.set('name', name);
     }
-    if (trail_mile) {
-      this.set('trail_mile', trail_mile);
+    if (symbol) {
+      this.set('symbol', symbol);
     }
   }
 }
 Parse.Object.registerSubclass('Waypoint', Waypoint);
+
+export { Parse };
