@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@react-native-community/art": "^1.0.3",
+    "@react-native-community/async-storage": "^1.6.3",
     "@react-native-mapbox-gl/maps": "^7.0.8",
     "parse": "^2.9.1",
     "react": "16.9.0",

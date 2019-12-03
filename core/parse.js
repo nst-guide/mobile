@@ -1,5 +1,5 @@
 import Parse from 'parse/react-native';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 Parse.setAsyncStorage(AsyncStorage);
 
 import { PARSE_APP_ID, PARSE_SERVER_URL } from 'react-native-dotenv';
