@@ -13,6 +13,7 @@ export class Map extends React.Component {
       <View style={styles.container}>
         <MapboxGL.MapView
           ref={ref => (this.map = ref)}
+          logoEnabled={false}
           style={styles.map}
           styleURL="https://raw.githubusercontent.com/nst-guide/osm-liberty/gh-pages/style.json"
         >
