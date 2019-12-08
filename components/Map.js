@@ -7,7 +7,7 @@ import { point, featureCollection } from '@turf/helpers';
 
 export class Map extends React.Component {
   state = {
-    waypoints: {},
+    waypoints: null,
   };
 
   componentDidMount() {
@@ -30,6 +30,7 @@ export class Map extends React.Component {
     // Create query
     const query = new Parse.Query(Waypoint);
     query.withinGeoBox('geometry', sw, ne);
+    query.fromLocalDatastore();
     const results = await query.find();
     return results;
   }
@@ -60,11 +61,15 @@ export class Map extends React.Component {
             <MapboxGL.LineLayer id="pctLine" style={layerStyles.pctLine} />
           </MapboxGL.ShapeSource>
 
-
-          <MapboxGL.ShapeSource id="waypoints" shape={this.state.waypoints}>
+          <MapboxGL.ShapeSource
+            id="waypoints"
+            shape={this.state.waypoints}
+            onPress={() => console.log('touched the point')}
+          >
             <MapboxGL.CircleLayer
               id="waypointCircle"
               style={layerStyles.waypointCircle}
+              visibility={this.state.waypoints ? 'visible' : 'none'}
             />
           </MapboxGL.ShapeSource>
         </MapboxGL.MapView>
