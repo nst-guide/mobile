@@ -19,14 +19,17 @@
     "react-native": "0.61.4",
     "react-native-collapsible": "^1.5.1",
     "react-native-dotenv": "^0.2.0",
+    "react-native-fs": "^2.16.2",
     "react-native-gesture-handler": "^1.5.0",
     "react-native-paper": "^3.2.1",
     "react-native-reanimated": "^1.4.0",
     "react-native-status-bar-height": "^2.4.0",
     "react-native-vector-icons": "^6.6.0",
+    "react-native-zip-archive": "^5.0.0",
     "react-navigation": "^4.0.10",
     "react-navigation-drawer": "^2.3.3",
-    "react-navigation-stack": "^1.10.3"
+    "react-navigation-stack": "^1.10.3",
+    "rn-fetch-blob": "^0.11.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

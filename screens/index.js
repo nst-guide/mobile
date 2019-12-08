@@ -5,3 +5,4 @@ export { default as LoginScreen } from './LoginScreen';
 export { default as RegisterScreen } from './RegisterScreen';
 export { default as RoutesScreen } from './RoutesScreen';
 export { default as SettingsScreen } from './SettingsScreen';
+export { default as DownloadsScreen } from './DownloadsScreen';

@@ -16,7 +16,7 @@ class DownloadsScreen extends React.Component {
 
   // static parse = Parse;
 
-  render() {
+render() {
     return (
       <View>
         <Appbar.Header>
