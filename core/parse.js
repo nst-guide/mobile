@@ -7,6 +7,7 @@ import { PARSE_APP_ID, PARSE_SERVER_URL } from 'react-native-dotenv';
 Parse.initialize(PARSE_APP_ID);
 Parse.serverURL = PARSE_SERVER_URL;
 Parse.User.enableUnsafeCurrentUser();
+Parse.enableLocalDatastore();
 
 export class User extends Parse.User {
   constructor({ username, password, email }) {

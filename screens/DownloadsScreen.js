@@ -1,21 +1,22 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Appbar, Text } from 'react-native-paper';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { Headline } from 'react-native-paper';
+import { Parse } from '../core/parse';
 
 class DownloadsScreen extends React.Component {
   state = {
     results: [],
+    parse: Parse,
   };
 
   static navigationOptions = {
     drawerLabel: 'Downloads',
-    drawerIcon: ({ tintColor }) => (
-      <FontAwesome5 name="download" color={tintColor} />
-    ),
   };
 
-  render() {
+  // static parse = Parse;
+
+render() {
     return (
       <View>
         <Appbar.Header>
@@ -24,6 +25,7 @@ class DownloadsScreen extends React.Component {
           />
           <Appbar.Content title="Downloads" />
         </Appbar.Header>
+        <Headline>Headline</Headline>
         <Text>Download map data</Text>
       </View>
     );
