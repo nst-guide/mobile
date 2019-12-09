@@ -8,6 +8,7 @@ import { point, featureCollection } from '@turf/helpers';
 export class Map extends React.Component {
   state = {
     waypoints: null,
+    nationalParkBoundariesVisible: false,
   };
 
   componentDidMount() {
@@ -83,6 +84,26 @@ export class Map extends React.Component {
               />
             </MapboxGL.ShapeSource>
           )}
+
+          {this.state.nationalParkBoundariesVisible && (
+            <MapboxGL.VectorSource
+              id="nationalParkBoundaries"
+              url="https://tiles.nst.guide/nationalpark/tile.json"
+              onPress={event =>
+                console.log(event.nativeEvent.payload.properties)
+              }
+              ref={source => {
+                this._vectorSource = source;
+              }}
+            >
+              <MapboxGL.FillLayer
+                id="nationalParkFill"
+                sourceLayerID="nationalpark"
+                style={layerStyles.nationalParkFill}
+                visibility="visible"
+              />
+            </MapboxGL.VectorSource>
+          )}
         </MapboxGL.MapView>
       </View>
     );
@@ -95,6 +116,9 @@ const layerStyles = {
   },
   waypointCircle: {
     circleColor: 'rgb(204, 50, 50)',
+  },
+  nationalParkFill: {
+    fillColor: 'rgb(0, 102, 0)',
   },
 };
 
