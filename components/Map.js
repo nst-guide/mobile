@@ -13,9 +13,9 @@ export class Map extends React.Component {
   componentDidMount() {
     MapboxGL.setTelemetryEnabled(false);
     this.getWaypoints().then(waypoints => {
-      const features = waypoints.map(waypoint =>
-        this.parseGeoPointToFeature(waypoint.attributes.geometry),
-      );
+      const features = waypoints.map(waypoint => {
+        return this.parseGeoPointToFeature(waypoint);
+      });
       const fc = featureCollection(features);
       this.setState({ waypoints: fc });
     });
@@ -36,7 +36,15 @@ export class Map extends React.Component {
   }
 
   parseGeoPointToFeature(geopoint) {
-    return point([geopoint.longitude, geopoint.latitude]);
+    const longitude = geopoint.attributes.geometry.longitude;
+    const latitude = geopoint.attributes.geometry.latitude;
+    const properties = {
+      alt: geopoint.attributes.alt,
+      name: geopoint.attributes.name,
+      desc: geopoint.attributes.description,
+      symbol: geopoint.attributes.symbol,
+    };
+    return point([longitude, latitude], properties);
   }
 
   render() {
@@ -61,17 +69,20 @@ export class Map extends React.Component {
             <MapboxGL.LineLayer id="pctLine" style={layerStyles.pctLine} />
           </MapboxGL.ShapeSource>
 
-          <MapboxGL.ShapeSource
-            id="waypoints"
-            shape={this.state.waypoints}
-            onPress={() => console.log('touched the point')}
-          >
-            <MapboxGL.CircleLayer
-              id="waypointCircle"
-              style={layerStyles.waypointCircle}
-              visibility={this.state.waypoints ? 'visible' : 'none'}
-            />
-          </MapboxGL.ShapeSource>
+          {this.state.waypoints !== null && (
+            <MapboxGL.ShapeSource
+              id="waypoints"
+              shape={this.state.waypoints}
+              onPress={event =>
+                console.log(event.nativeEvent.payload.properties)
+              }
+            >
+              <MapboxGL.CircleLayer
+                id="waypointCircle"
+                style={layerStyles.waypointCircle}
+              />
+            </MapboxGL.ShapeSource>
+          )}
         </MapboxGL.MapView>
       </View>
     );
