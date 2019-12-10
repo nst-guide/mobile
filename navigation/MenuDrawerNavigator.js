@@ -2,6 +2,7 @@ import React from 'react';
 
 import { SafeAreaView } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
 import { ScrollView } from 'react-native';
 import { Drawer } from 'react-native-paper';
 
@@ -11,6 +12,7 @@ import {
   AuthStartScreen,
   SettingsScreen,
   DownloadsScreen,
+  WebviewScreen,
 } from '../screens';
 
 // If the current route is the same as the route called in
@@ -82,4 +84,17 @@ const MenuDrawerNavigator = createDrawerNavigator(
     ),
   },
 );
-export default MenuDrawerNavigator;
+
+// TODO change initialRouteName back to MainApp
+const AppStackNavigator = createStackNavigator(
+  {
+    MainApp: MenuDrawerNavigator,
+    Webview: { screen: WebviewScreen },
+  },
+  {
+    initialRouteName: 'Webview',
+    headerMode: 'none',
+  },
+);
+
+export default AppStackNavigator;

@@ -6,3 +6,4 @@ export { default as RegisterScreen } from './RegisterScreen';
 export { default as RoutesScreen } from './RoutesScreen';
 export { default as SettingsScreen } from './SettingsScreen';
 export { default as DownloadsScreen } from './DownloadsScreen';
+export { default as WebviewScreen } from './WebviewScreen';
