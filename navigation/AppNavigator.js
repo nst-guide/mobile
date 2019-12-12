@@ -1,12 +1,12 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import MenuDrawerNavigator from './MenuDrawerNavigator';
+import AppStackNavigator from './AppStackNavigator';
 import AuthNavigator from './AuthNavigator';
 
 export default createAppContainer(
   createSwitchNavigator(
     {
-      App: MenuDrawerNavigator,
+      App: AppStackNavigator,
       Auth: AuthNavigator,
     },
     {
