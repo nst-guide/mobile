@@ -85,14 +85,13 @@ const MenuDrawerNavigator = createDrawerNavigator(
   },
 );
 
-// TODO change initialRouteName back to MainApp
 const AppStackNavigator = createStackNavigator(
   {
     MainApp: MenuDrawerNavigator,
     Webview: { screen: WebviewScreen },
   },
   {
-    initialRouteName: 'Webview',
+    initialRouteName: 'MainApp',
     headerMode: 'none',
   },
 );
