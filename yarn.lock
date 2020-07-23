@@ -614,18 +614,18 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
-"@babel/runtime-corejs3@7.7.2":
-  version "7.7.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.7.2.tgz#2bf55c6cc576a7f54a40b970ea5215131abc1159"
-  integrity sha512-odQQZpujq0AHttKrvp4n2KGjK5b5cuq7LeEcsdadwZOemMkmJnlgTXMCf5fIixLLaBxUypwn0krKK51vVMA5cg==
+"@babel/runtime-corejs3@7.7.4":
+  version "7.7.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.7.4.tgz#f861adc1cecb9903dfd66ea97917f02ff8d79888"
+  integrity sha512-BBIEhzk8McXDcB3IbOi8zQPzzINUp4zcLesVlBSOcyGhzPUU8Xezk5GAG7Sy5GVhGmAO0zGd2qRSeY2g4Obqxw==
   dependencies:
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@7.7.2", "@babel/runtime@^7.0.0", "@babel/runtime@^7.7.2":
-  version "7.7.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.2.tgz#111a78002a5c25fc8e3361bedc9529c696b85a6a"
-  integrity sha512-JONRbXbTXc9WQE2mAZd1p0Z3DZ/6vaQIkgYMSTP3KjRCyd7rCZCcfhCyX+YjwcKxcZ82UrxbRD358bpExNgrjw==
+"@babel/runtime@7.7.4", "@babel/runtime@^7.0.0", "@babel/runtime@^7.7.2":
+  version "7.7.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.4.tgz#b23a856751e4bf099262f867767889c0e3fe175b"
+  integrity sha512-r24eVUUr0QqNZa+qrImUk8fn5SPhHq+IfYvIoIMg0do3GdK9sMdiLKP3GYVVaxpPKORgm8KRKaNTEhAjgIpLMw==
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -5198,13 +5198,13 @@ parse5@4.0.0:
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
   integrity sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA==
 
-parse@^2.9.1:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/parse/-/parse-2.9.1.tgz#31ecf91492d3b7fbcf0caf97494e9a3136c1327d"
-  integrity sha512-vLuJEtkZQGQZk0sZqETWmEx6IOhQYowyV4+bd0z4Fn3/FalC+RgisGOJIRdlKfjCKcinDBMtEttcMB5pg4v44A==
+parse@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/parse/-/parse-2.10.0.tgz#7af2646885c01dcfb9bd434b6d3b5a1ef645b5ad"
+  integrity sha512-TBJCvQPachrcGGLbN8llN8tOr01VsKB6pxi3OWq3/C0bIHHdb2Bd+cgH4v5ZlRCrZt3MHVasGH4rvx7Klkp7Wg==
   dependencies:
-    "@babel/runtime" "7.7.2"
-    "@babel/runtime-corejs3" "7.7.2"
+    "@babel/runtime" "7.7.4"
+    "@babel/runtime-corejs3" "7.7.4"
     uuid "3.3.3"
     ws "7.2.0"
     xmlhttprequest "1.8.0"
