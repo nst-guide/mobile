@@ -15,7 +15,7 @@
     "@react-native-community/async-storage": "^1.6.3",
     "@react-native-mapbox-gl/maps": "^7.0.8",
     "@turf/helpers": "^6.1.4",
-    "parse": "^2.9.1",
+    "parse": "^2.10.0",
     "react": "16.9.0",
     "react-native": "0.61.4",
     "react-native-collapsible": "^1.5.1",
